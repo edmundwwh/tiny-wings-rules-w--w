@@ -1,0 +1,53 @@
+{
+  "name": "tiny-wings-rules-w--w",
+  "version": "1.0.0",
+  "description": "代码规范",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "lint-staged",
+    "commit": "git add . && npm lint && git cz",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged",
+    "format": "prettier --write src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged --concurrent false"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edmundwwh/tiny-wings-rules-w--w.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edmundwwh/tiny-wings-rules-w--w/issues"
+  },
+  "homepage": "https://github.com/edmundwwh/tiny-wings-rules-w--w#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.1",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-vue": "^9.19.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.5"
+  }
+}
